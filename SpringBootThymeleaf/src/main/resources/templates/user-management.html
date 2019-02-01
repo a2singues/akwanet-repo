@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}"
+	th:lang="${lang}">
+	<head>
+		<meta charset="UTF8">
+		<meta content="noindex, nofollow" name="robots">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" th:href="@{/css/custform.css}" />
+		<link rel="stylesheet" th:href="@{/css/custradiobox.css}" />
+		<link rel="stylesheet" th:href="@{/css/custcheckbox.css}" />
+		<link rel="stylesheet" th:href="@{/css/custselect.css}" />
+		<style>
+		</style>
+	</head>
+	
+	<body>
+		<form action="#" th:action="@{/app/create-user}" th:object="${user}" method="POST">
+		<div id="formdiv">
+			<image id="logo" th:src="@{/images/user-add.png}"/>
+			
+			<label>Nouvel utilisateur</label>
+			<div class="fieldcontain">
+				<label class="formfield">Identifiant:</label>
+				<!-- input id="userid" th:style="'background-image:url(/images/info3.png);background-repeat: no-repeat;'" placeholder="Identifiant utilisateur" type="text" -->
+				<input id="userid" placeholder="Identifiant utilisateur" type="text" th:field="*{userId}" />
+				<label th:if="${#fields.hasErrors('userId')}" th:text="#{error.user.id}" th:class="'error'">Identifiant invalide</label>
+			</div>
+			<div class="fieldcontain">
+				<label class="formfield">Nom et prénom:</label>
+				<input id="fname" placeholder="Nom et prénom" type="text" th:field="*{userName}">
+				<label th:if="${#fields.hasErrors('userName')}"	th:text="#{error.user.name}" th:class="'error'">Le nom est oblgatoire</label>
+			</div>
+			<label class="formfield">Genre:</label>
+			<div class="fieldcontain" style="background:#ddd; border-radius:10px; height:25x; padding:5px;">
+				<label class="rbcontainer">Femelle
+					<input type="radio" checked="checked" name="genre" value="1" th:field="*{gender}"/>
+					<span class="rbcheckmark"/>
+				</label>
+				<label class="rbcontainer">Mâle
+					<input type="radio" name="genre" th:field="*{gender}" value="2"/>
+					<span class="rbcheckmark"/>
+				</label>
+				<span style="display:block;"></span><label th:if="${#fields.hasErrors('gender')}" th:text="#{error.user.gender}" th:class="'error'">Genre invalide</label></span>
+			</div>
+			<label class="formfield">Etat marital:</label>
+			<div class="fieldcontain" style="background:#ddd; border-radius:10px; height:25px; padding:5px;">
+				<label class="rbcontainer">Célibataire
+					<input type="radio" checked="checked" name="maritalStatus" th:field="*{maritalStatus}" value="1"/>
+					<span class="rbcheckmark"/>
+				</label>
+				<label class="rbcontainer">Marié.e&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="maritalStatus" th:field="*{maritalStatus}" value="2"/>
+					<span class="rbcheckmark"/>
+				</label>
+				<label class="rbcontainer">Divorcé.e&nbsp;&nbsp;
+					<input type="radio" name="maritalStatus" th:field="*{maritalStatus}" value="3"/>
+					<span class="rbcheckmark"/>
+				</label>
+				<label class="rbcontainer">Veuf.ve&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="maritalStatus" th:field="*{maritalStatus}" value="4"/>
+					<span class="rbcheckmark"/>
+				</label>
+				<span style="display:block;"><label th:if="${#fields.hasErrors('maritalStatus')}" th:text="#{error.user.maritalstatus}" th:class="'error'">Etat marital invalide</label></span>
+				
+			</div>
+			<label class="formfield">Loisirs:</label>
+			<div class="fieldcontain" style="background:#ddd; border-radius:10px; height:25px; padding:5px;">
+				<label class="cbcontainer">Ciné&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" checked="checked" th:field="*{hobbies}" value="1"/>
+					<span class="cbcheckmark"/>
+				</label>
+				<label class="cbcontainer">Théâtre&nbsp;
+					<input type="checkbox" th:field="*{hobbies}" value="2"/>
+					<span class="cbcheckmark"/>
+				</label>
+				<label class="cbcontainer">Télé&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" th:field="*{hobbies}" value="3"/>
+					<span class="cbcheckmark"/>
+				</label>
+				<label class="cbcontainer">Internet
+					<input type="checkbox" th:field="*{hobbies}" value="4"/>
+					<span class="cbcheckmark"/>
+				</label>
+				<label class="cbcontainer">Autre&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" th:field="*{hobbies}" value="5"/>
+					<span class="cbcheckmark"/>
+				</label>
+				<span style="display:block;"><label th:if="${#fields.hasErrors('maritalStatus')}" th:text="#{error.user.hobbies}" th:class="'error'">Loisirs non invalide</label></span>
+			</div>
+			<div class="fieldcontain">
+				<label class="formfield">Email:</label>
+				<input id="email" placeholder="Email" type="text">
+				<span style="display:block;"><label th:if="${#fields.hasErrors('email')}" th:text="#{error.user.email}" th:class="'error'">Adresse email invalide</label></span>
+			</div>
+			<div class="fieldcontain">
+				<label class="formfield">Profil:</label>
+				<div>
+				  <!-- select style="background: #fafafa url('img/br_down.png') no-repeat 90% 50%; width: 380px; border-radius: 5px;" -->
+				  <select style="width: 385px; height: 30px; border-radius: 5px;" th:field="*{profile}">
+					<option value="0">Votre profil:</option>
+					<option value="1">Chef de projet</option>
+					<option value="2">Architecte</option>
+					<option value="3">Tech Lead</option>
+					<option value="4">Testeur</option>
+					<option value="5">Développeur</option>
+					<option value="6">Directeur</option>
+				  </select>
+					<label th:if="${#fields.hasErrors('profile')}" th:text="#{error.user.profile}" th:class="'error'">Profil invalide</label>
+				</div>	
+			</div>	
+
+			<input id="submit" type="submit" value="Submit">
+
+		</div>
+		</form>
+	</body>
+</html>

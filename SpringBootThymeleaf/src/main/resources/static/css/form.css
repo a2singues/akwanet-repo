@@ -1,0 +1,29 @@
+label {
+	display: block;
+}
+
+input {
+	width: 250px;
+	padding: 4px;
+	border: 1px solid #555;
+}
+
+input[type="submit"] {
+	width: auto;
+	padding: 4px 15px;
+	background: #555;
+	color: #fff;
+	cursor: pointer;
+}
+
+input[required] {
+	border-right: 8px solid orange;
+}
+
+input:invalid {
+	border-right: 8px solid red;
+}
+
+input:valid {
+	border-right: 8px solid green;
+}

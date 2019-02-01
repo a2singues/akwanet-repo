@@ -1,0 +1,39 @@
+.select-style {
+    border: 1px solid #ccc;
+    width: 385px;
+    overflow: hidden;
+	margin-top: 5px;
+    background: #fafafa url("img/br_down.png") no-repeat 90% 50%; 
+	appearance: none; 
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	box-shadow: 0 0 10px;
+	-webkit-box-shadow:0 0 10px;
+	/* For I.E. */
+	-moz-box-shadow: 0 0 10px;
+	/* For Mozilla */
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	/* For I.E. */
+	-moz-border-radius: 5px;
+	
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 365px;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+/*    background: transparent; */
+	background: #fff;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /*appearance: none;        remove default arrow */
+    /*background-image: url(...);   /* add custom arrow */
+}
+
+.select-style select:focus {
+    outline: none;
+}

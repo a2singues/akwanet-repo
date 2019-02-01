@@ -1,0 +1,70 @@
+/* The container */
+.cbcontainer {
+  display: inline;
+  position: relative;
+  padding-left: 21px;
+  margin-bottom: 12px;
+  /*margin-right: 2px; */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: slategray;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox  */
+.cbcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width:0;
+}
+
+/* Create a custom checkbox  */
+.cbcheckmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: green;
+}
+
+/* On mouse-over, add a grey background color */
+.cbcontainer:hover input ~ .cbcheckmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.cbcontainer input:checked ~ .cbcheckmark {
+  background-color: green;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.cbcheckmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator when checked */
+.cbcontainer input:checked ~ .cbcheckmark:after {
+  display: inline;
+}
+
+/* Style the checkmar/indicator */
+.cbcontainer .cbcheckmark:after {
+	left: 6px;
+ 	top: 2px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}

@@ -1,0 +1,34 @@
+.error{
+    color: red;
+    font-size: 15px;
+}
+.user{
+    color: blue;
+    font-size: 15px;
+}
+table {
+   border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #333;
+}
+
+.mainMenuItemClass {
+	font: bold 16pt "Segoe UI", sans-serif;
+	color: #fff;
+}
+
+/*
+#usersDiv div:hover, #usersDiv div:active, #usersDiv div:focus {
+  background-color: #DCFFFF;
+  color:#000066;
+}
+div:focus + #usersDiv {
+  background: green;   
+}
+*/
+
+.itemMenuDiv:hover {
+  background: orange;
+}

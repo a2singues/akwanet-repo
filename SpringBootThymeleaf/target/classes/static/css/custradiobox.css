@@ -1,0 +1,68 @@
+/* The container */
+label {
+	/*background: yellow; */
+}
+.rbcontainer {
+  display: inline;
+  position: relative;
+  padding-left: 21px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: slategray;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.rbcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.rbcheckmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.rbcontainer:hover input ~ .rbcheckmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.rbcontainer input:checked ~ .rbcheckmark {
+  background-color: green;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.rbcheckmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.rbcontainer input:checked ~ .rbcheckmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.rbcontainer .rbcheckmark:after {
+ 	top: 6px;
+	left: 6px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
