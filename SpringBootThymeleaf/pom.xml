@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringBoot Thymeleaf implementation</name>
 	<description>SpringBoot Thymeleaf implementation using maven</description>
-
+ 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -57,10 +57,24 @@
 	
 	<build>
 		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>                
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration> 
+	            <!-- configuration>
+	                <fork>true</fork>
+	                <executable>"C:\Program Files\Java\jdk1.8.0_66"\bin\javac.exe</executable>
+	            </configuration -->             
+            </plugin>		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>
