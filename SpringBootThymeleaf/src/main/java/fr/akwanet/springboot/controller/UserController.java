@@ -36,7 +36,6 @@ public class UserController {
        	logger.info("$$ GET createUserView ...");
        	
 		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("user-creation");
 		mav.setViewName("user-management");
 		mav.addObject("user", new User());
 		mav.addObject("allProfiles", getProfiles());
@@ -54,7 +53,7 @@ public class UserController {
        	
 		ModelAndView mav = new ModelAndView();
 		List<User> ul;
-	    mav.addObject("allUsers", ul=userMongoService.getUsers());
+	    mav.addObject("allUsers", (ul=userMongoService.getUsers()));
 	    mav.setViewName("user-info");
 	    for (User u:ul) {
 	    	logger.info("# User: "+u);
@@ -77,7 +76,6 @@ public class UserController {
 	    ModelAndView mav = new ModelAndView();
 	    if(result.hasErrors()) {
 	       	logger.info("Validation errors while submitting form.");
-//	       	mav.setViewName("user-creation");
 			mav.setViewName("user-management");
 	        mav.addObject("user", user);
 	        mav.addObject("allProfiles", getProfiles());
@@ -88,7 +86,7 @@ public class UserController {
 	    	userMongoService.addUser(user);
 	    }
 	    catch (Exception e) {
-			e.printStackTrace();
+			logger.error("*** Exception ***", e);
 		}
 	    
 	    mav.addObject("allUsers", userMongoService.getUsers());
@@ -98,7 +96,7 @@ public class UserController {
 	   }
 
 	protected List<String> getProfiles() {
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		list.add("Developer");
 		list.add("Manager");
 		list.add("Director");
