@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.akwanet.springboot</groupId>
 	<artifactId>SpringBootThymeleaf</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>SpringBoot Thymeleaf implementation</name>
 	<description>SpringBoot Thymeleaf implementation using maven</description>
  
@@ -80,11 +80,11 @@
 	<distributionManagement>
 	    <repository>
 	        <id>nexus-releases</id>
-	        <url>http://localhost:9081/repository/maven-releases/</url>
+	        <url>http://localhost:9081/nexus/content/repositories/releases/</url>
 	    </repository>
 	    <snapshotRepository>
 	        <id>nexus-snapshots</id>
-	        <url>http://localhost:9081/repository/maven-snapshots/</url>
+	        <url>http://localhost:9081/nexus/content/repositories/snapshots/</url>
 	    </snapshotRepository>
 	</distributionManagement>
 
