@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.akwanet.springboot</groupId>
 	<artifactId>SpringBootThymeleaf</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>SpringBoot Thymeleaf implementation</name>
 	<description>SpringBoot Thymeleaf implementation using maven</description>
  
