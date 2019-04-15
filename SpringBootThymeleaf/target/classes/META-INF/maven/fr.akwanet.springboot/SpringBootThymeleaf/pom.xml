@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.akwanet.springboot</groupId>
 	<artifactId>SpringBootThymeleaf</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>SpringBoot Thymeleaf implementation</name>
 	<description>SpringBoot Thymeleaf implementation using maven</description>
-
+ 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -17,7 +17,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+	</parent> 
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
@@ -57,10 +57,35 @@
 	
 	<build>
 		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>                
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration> 
+	            <!-- configuration>
+	                <fork>true</fork>
+	                <executable>"C:\Program Files\Java\jdk1.8.0_66"\bin\javac.exe</executable>
+	            </configuration -->             
+            </plugin>		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
+	
+	<distributionManagement>
+	    <repository>
+	        <id>nexus-releases</id>
+	        <url>http://localhost:9081/nexus/content/repositories/releases/</url>
+	    </repository>
+	    <snapshotRepository>
+	        <id>nexus-snapshots</id>
+	        <url>http://localhost:9081/nexus/content/repositories/snapshots/</url>
+	    </snapshotRepository>
+	</distributionManagement>
+
 </project>
